@@ -84,6 +84,11 @@ class VocabularyTypeSearchOptions(SearchOptions):
             title=_("ID"),
             fields=["id"],
         ),
+        # Alias of `id`, under the name the administration UI displays.
+        "name": dict(
+            title=_("Name"),
+            fields=["id"],
+        ),
     }
 
     sort_default = "id"

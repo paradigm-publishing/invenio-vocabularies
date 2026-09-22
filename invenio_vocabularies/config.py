@@ -211,16 +211,19 @@ VOCABULARIES_TYPES_SORT_OPTIONS = {
         title=_("Name"),
         fields=["id"],
     ),
-    "count": dict(
-        title=_("Number of entries"),
-        fields=["count"],
-    ),
 }
-"""Definitions of available Vocabulary types sort options. """
+"""Definitions of available Vocabulary types sort options.
+
+Vocabulary types are stored in the database and only their name is sortable;
+the number of entries is aggregated from the search index after the query has
+run and therefore cannot be sorted on.
+"""
 
 VOCABULARIES_TYPES_SEARCH = {
     "facets": [],
-    "sort": ["name", "count"],
+    "sort": ["name"],
+    "sort_default": "name",
+    "sort_default_no_query": "name",
 }
 """Vocabulary type search configuration."""
 
