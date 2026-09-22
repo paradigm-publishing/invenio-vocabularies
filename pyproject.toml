@@ -41,6 +41,8 @@ vocabularies = "invenio_vocabularies.cli:vocabularies"
 
 [project.entry-points."invenio_administration.views"]
 vocabularies_list = "invenio_vocabularies.administration.views.vocabularies:VocabulariesListView"
+vocabulary_type_items = "invenio_vocabularies.administration.views.vocabularies:VocabularyItemsListView"
+vocabulary_type_item_details = "invenio_vocabularies.administration.views.vocabularies:VocabularyItemDetailsView"
 
 [project.entry-points."invenio_assets.webpack"]
 invenio_vocabularies = "invenio_vocabularies.webpack:theme"

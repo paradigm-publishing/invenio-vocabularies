@@ -268,3 +268,105 @@ The CSV file should have the following columns:
 - `org_id`: The ORCiD organization ID.
 - `aff_id`: The affiliation ID to map to.
 """
+
+VOCABULARIES_ADMINISTRATION_ITEM_FIELDS = {
+    "*": {
+        "list": {
+            "id": {"text": _("ID"), "order": 1},
+            "title_l10n": {"text": _("Title"), "order": 2},
+        },
+        "details": {
+            "id": {"text": _("ID"), "order": 1},
+            "title_l10n": {"text": _("Title"), "order": 2},
+            "description_l10n": {"text": _("Description"), "order": 3},
+            "icon": {"text": _("Icon"), "order": 4},
+        },
+    },
+    "affiliations": {
+        "list": {
+            "id": {"text": _("ID"), "order": 1},
+            "name": {"text": _("Name"), "order": 2},
+            "country_name": {"text": _("Country"), "order": 3},
+        },
+        "details": {
+            "id": {"text": _("ID"), "order": 1},
+            "name": {"text": _("Name"), "order": 2},
+            "acronym": {"text": _("Acronym"), "order": 3},
+            "country_name": {"text": _("Country"), "order": 4},
+            "location_name": {"text": _("Location"), "order": 5},
+            "website": {"text": _("Website"), "order": 6},
+            "status": {"text": _("Status"), "order": 7},
+            "created": {"text": _("Created"), "order": 8},
+            "updated": {"text": _("Updated"), "order": 9},
+        },
+    },
+    "awards": {
+        "list": {
+            "id": {"text": _("ID"), "order": 1},
+            "title_l10n": {"text": _("Title"), "order": 2},
+            "number": {"text": _("Number"), "order": 3},
+            "funder.name": {"text": _("Funder"), "order": 4},
+        },
+        "details": {
+            "id": {"text": _("ID"), "order": 1},
+            "title_l10n": {"text": _("Title"), "order": 2},
+            "acronym": {"text": _("Acronym"), "order": 3},
+            "number": {"text": _("Number"), "order": 4},
+            "program": {"text": _("Program"), "order": 5},
+            "funder.name": {"text": _("Funder"), "order": 6},
+            "website": {"text": _("Website"), "order": 7},
+        },
+    },
+    "funders": {
+        "list": {
+            "id": {"text": _("ID"), "order": 1},
+            "name": {"text": _("Name"), "order": 2},
+            "country_name": {"text": _("Country"), "order": 3},
+        },
+        "details": {
+            "id": {"text": _("ID"), "order": 1},
+            "name": {"text": _("Name"), "order": 2},
+            "title_l10n": {"text": _("Title"), "order": 3},
+            "country_name": {"text": _("Country"), "order": 4},
+            "location_name": {"text": _("Location"), "order": 5},
+        },
+    },
+    "names": {
+        "list": {
+            "id": {"text": _("ID"), "order": 1},
+            "name": {"text": _("Name"), "order": 2},
+            "created": {"text": _("Created"), "order": 3},
+        },
+        "details": {
+            "id": {"text": _("ID"), "order": 1},
+            "name": {"text": _("Name"), "order": 2},
+            "given_name": {"text": _("Given name"), "order": 3},
+            "family_name": {"text": _("Family name"), "order": 4},
+            "internal_id": {"text": _("Internal ID"), "order": 5},
+            "created": {"text": _("Created"), "order": 6},
+            "updated": {"text": _("Updated"), "order": 7},
+        },
+    },
+    "subjects": {
+        "list": {
+            "id": {"text": _("ID"), "order": 1},
+            "subject": {"text": _("Subject"), "order": 2},
+            "scheme": {"text": _("Scheme"), "order": 3},
+        },
+        "details": {
+            "id": {"text": _("ID"), "order": 1},
+            "subject": {"text": _("Subject"), "order": 2},
+            "scheme": {"text": _("Scheme"), "order": 3},
+            "created": {"text": _("Created"), "order": 4},
+            "updated": {"text": _("Updated"), "order": 5},
+        },
+    },
+}
+"""Fields displayed by the administration views of a vocabulary's items.
+
+Keyed by vocabulary type id, with ``"*"`` holding the fields used for any
+vocabulary type without an entry of its own. Items are fetched with the
+``application/vnd.inveniordm.v1+json`` representation, so the localized
+``*_l10n`` fields are available wherever the type's serializer provides them.
+Only scalar fields can be displayed.
+"""

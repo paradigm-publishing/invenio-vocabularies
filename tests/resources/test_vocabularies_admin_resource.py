@@ -42,3 +42,15 @@ def test_search(client, example_licenses_records, h):
     assert 200 == res.status_code
     expected_links = {"self": "https://127.0.0.1:5000/api/vocabularies/?facets=%7B%7D"}
     assert expected_links == res.json["links"]
+
+
+def test_search_items_localized(client, example_licenses_records):
+    """The administration item views rely on the localized representation."""
+    res = client.get(
+        "/vocabularies/licenses",
+        headers={"accept": "application/vnd.inveniordm.v1+json"},
+    )
+
+    assert 200 == res.status_code
+    hits = {hit["id"]: hit for hit in res.json["hits"]["hits"]}
+    assert hits["cc-by"]["title_l10n"] == "Creative Commons Attribution"
